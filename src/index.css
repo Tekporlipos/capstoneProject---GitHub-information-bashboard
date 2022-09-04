@@ -37,7 +37,7 @@ code {
     width: 50rem;
     position: absolute;
     left: 10%;
-    top: 18rem;
+    top: 22rem;
 }
 
 .loginbutton{
@@ -121,16 +121,16 @@ code {
 .dash2 h4{
   position: absolute;
   left: 1rem;
+  top: 0.5rem
 }
 .dash1 h1{
  position: relative;
-    left: 12%;
-    top: 22rem;
+    left: 7%;
+    top: 23rem;
 }
 .dash1 h1 img{
  position: relative;
     left: -3%;
-    top: 0.5rem;
 }
 .dash1 img{
   position: absolute;
@@ -140,4 +140,41 @@ code {
   position: absolute;
   left: 6rem;
   top: 12rem;
+}
+.nextbtn{
+  position: absolute;
+  left: 36rem;
+  top: 36.5rem;
+
+}
+.public{
+  position: absolute;
+  left: 14.5rem;
+  top: 0.5rem;
+
+}
+.repolist{
+  position: absolute;
+  top: 3rem;
+  width: 100%;
+}
+
+.dash2 span{
+  background-color:#f7f9f9;
+  padding: 0.1rem;
+  border-radius: 20rem;
+}
+
+.cardoga{
+    position: absolute;
+    left: 4rem;
+    top: 4rem;
+    display: flex;
+    white-space: 10rem;
+}
+.dropdown{
+  position: absolute;
+  left: 12.5rem;
+  top: 1.5rem;
+
 }
