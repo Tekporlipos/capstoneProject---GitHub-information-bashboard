@@ -109,6 +109,7 @@ code {
 
 .dashcontainer{
   display: flex;
+  justify-content: space-between;
 }
 .dash2{
   width: 100%;
@@ -143,9 +144,18 @@ code {
 }
 .nextbtn{
   position: absolute;
-  left: 36rem;
+  left: 37rem;
   top: 36.5rem;
-
+}
+.nextbtn1{
+  position: absolute;
+  left: 61rem;
+  top: 16rem;
+}
+.prev{
+  position: absolute;
+  left: 32rem;
+  top: 36.5rem;
 }
 .public{
   position: absolute;
@@ -167,14 +177,31 @@ code {
 
 .cardoga{
     position: absolute;
-    left: 4rem;
+    left: 7rem;
     top: 4rem;
-    display: flex;
-    white-space: 10rem;
-}
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    }
+
 .dropdown{
   position: absolute;
   left: 12.5rem;
   top: 1.5rem;
 
+}
+
+.dropdown1{
+  position: absolute;
+  /* left: 8.5rem; */
+  top: 1.5rem;
+
+}
+.linkicon{
+  position: relative;
+  left: 0.5rem;
+}
+.link{
+  position: relative;
+  left: 0.7rem;
 }

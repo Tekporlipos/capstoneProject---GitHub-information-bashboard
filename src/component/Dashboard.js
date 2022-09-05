@@ -1,8 +1,10 @@
 import usericon from '../images/usericon.png'
 import dashicon from "../images/dashicon.png";
+import location from "../images/location.png";
+import link from "../images/link.png";
 import projecticon from "../images/projecticon.png";
 import repositoryicon from "../images/repositoryicon.png";
-import { Card, } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
 const Dashboard = () => {
   return (
@@ -29,52 +31,182 @@ const Dashboard = () => {
       </div>
 
       <div className="dash2">
-        <h4> Recent Organisations</h4>
+        <h4> Organisations</h4>
         <div className="cardoga">
-          <Card style={{ width: "18rem" }} >
+          <Card style={{ width: "18rem" }}>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>Target</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
+                Target's Official GitHub Organisation
               </Card.Subtitle>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
             </Card.Body>
           </Card>
 
           <Card style={{ width: "18rem" }}>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>Target</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
+                Target's Official GitHub Organisation
               </Card.Subtitle>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
             </Card.Body>
           </Card>
 
           <Card style={{ width: "18rem" }}>
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
+              <Card.Title>Target</Card.Title>
               <Card.Subtitle className="mb-2 text-muted">
-                Card Subtitle
+                Target's Official GitHub Organisation
               </Card.Subtitle>
               <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
               </Card.Text>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
             </Card.Body>
           </Card>
+
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>Target</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Target's Official GitHub Organisation
+              </Card.Subtitle>
+              <Card.Text>
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
+              </Card.Text>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
+            </Card.Body>
+          </Card>
+
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>Target</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Target's Official GitHub Organisation
+              </Card.Subtitle>
+              <Card.Text>
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
+              </Card.Text>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
+            </Card.Body>
+          </Card>
+
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>Target</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Target's Official GitHub Organisation
+              </Card.Subtitle>
+              <Card.Text>
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
+              </Card.Text>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
+            </Card.Body>
+          </Card>
+
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>Target</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Target's Official GitHub Organisation
+              </Card.Subtitle>
+              <Card.Text>
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
+              </Card.Text>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
+            </Card.Body>
+          </Card>
+
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>Target</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Target's Official GitHub Organisation
+              </Card.Subtitle>
+              <Card.Text>
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
+              </Card.Text>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
+            </Card.Body>
+          </Card>
+
+          <Card style={{ width: "18rem" }}>
+            <Card.Body>
+              <Card.Title>Target</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Target's Official GitHub Organisation
+              </Card.Subtitle>
+              <Card.Text>
+                <img src={location} alt={location} width={15} />
+                Newston
+                <img className="linkicon" src={link} alt={link} width={15} />
+                <a className="link" href="#">
+                  www.target.com
+                </a>
+              </Card.Text>
+              <Card.Link href="#">29 repositories</Card.Link>
+              <Card.Link href="#">12 members</Card.Link>
+            </Card.Body>
+          </Card>
+
+          <Button variant="outline-secondary" className="nextbtn1">
+            Next
+          </Button>
         </div>
       </div>
     </div>

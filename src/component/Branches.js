@@ -46,7 +46,7 @@ const Dashboard = () => {
           </DropdownButton>
         </div>
 
-        <div className="dropdown">
+        <div className="dropdown1">
           <DropdownButton
             variant="outline-secondary"
             id="dropdown-basic-button"
