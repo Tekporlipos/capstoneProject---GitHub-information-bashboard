@@ -186,7 +186,7 @@ code {
 
 .dropdown{
   position: absolute;
-  left: 12.5rem;
+  left: 9.5rem;
   top: 1.5rem;
 
 }
@@ -204,4 +204,20 @@ code {
 .link{
   position: relative;
   left: 0.7rem;
+}
+
+.pull{
+  position: absolute;
+  left: 32rem;
+}
+
+.pull1{
+  position: absolute;
+  left: 50rem;
+  top: -5.2rem;
+}
+.contributions{
+  position: absolute;
+  left: 17rem;
+  top: 10.7rem;
 }
