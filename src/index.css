@@ -149,9 +149,15 @@ code {
 }
 .nextbtn1{
   position: absolute;
-  left: 61rem;
+  left: 59.5rem;
   top: 16rem;
 }
+.nextbtn2{
+  position: absolute;
+  left: -6.7rem;
+  top: 16rem;
+}
+
 .prev{
   position: absolute;
   left: 32rem;
@@ -177,7 +183,7 @@ code {
 
 .cardoga{
     position: absolute;
-    left: 7rem;
+    left: 10rem;
     top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -220,4 +226,12 @@ code {
   position: absolute;
   left: 17rem;
   top: 10.7rem;
+}
+.lin{
+  text-decoration: none;
+  color: #000000;
+}
+.li{
+  text-decoration: none;
+  color: #ECE8E8;
 }

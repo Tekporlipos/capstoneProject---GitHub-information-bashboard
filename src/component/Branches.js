@@ -6,7 +6,8 @@ import projecticon from "../images/projecticon.png";
 import repositoryicon from "../images/repositoryicon.png";
 import Contributions from "./Contributions";
 import { DropdownButton, Dropdown, Card } from "react-bootstrap";
-
+import { Link } from 'react-router-dom';
+ 
 const Dashboard = () => {
   return (
     <div className="dashcontainer">
@@ -17,7 +18,9 @@ const Dashboard = () => {
         <h1>
           {" "}
           <img src={dashicon} alt={dashicon} width={40} />
-          Dashboard
+          <Link to={"/dashboard"} className="li">
+            Dashboard
+          </Link>
         </h1>
         <h1>
           {" "}
@@ -26,9 +29,13 @@ const Dashboard = () => {
         <h1>
           {" "}
           <img src={repositoryicon} alt={repositoryicon} width={40} />
-          Repositories
+          <Link to={"/repositories"} className="li">
+            Repositories
+          </Link>
         </h1>
-        <button className="signout"> Sign out</button>
+        <Link to={"/"}>
+          <button className="signout"> Sign out</button>
+        </Link>
       </div>
 
       <div className="dash2">
@@ -85,7 +92,7 @@ const Dashboard = () => {
         </Card>
 
         <div className="contributions">
-        Contributions 
+          Contributions
           <Contributions />
         </div>
       </div>

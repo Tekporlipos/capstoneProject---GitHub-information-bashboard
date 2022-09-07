@@ -6,6 +6,7 @@ import Cover from "./component/Cover";
 import Dashboard from "./component/Dashboard";
 import {BrowserRouter as Router, Route, Routes, } from 'react-router-dom'
 import Branches from './component/Branches';
+import Dashboard1 from './component/Dashboard1';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Cover />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard1" element={<Dashboard1 />} />
           <Route path="/repositories" element={<Repositories />} />
           <Route path="/repositories1" element={<Repositories1 />} />
           <Route path="/branches" element={<Branches />} />

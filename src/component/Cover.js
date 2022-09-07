@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom'
 
 const Cover = () => {
   return (
@@ -8,7 +8,9 @@ const Cover = () => {
           GITHUB <span>INFORMATION</span> <br /> DASHBOARD
         </h1>
         <p className="headp">Get Started.....</p>
-        <button className="loginbutton"> Login Here</button>
+        <Link to={"/dashboard"}>
+          <button className="loginbutton"> Login Here</button>
+        </Link>
       </div>
     </div>
   );
