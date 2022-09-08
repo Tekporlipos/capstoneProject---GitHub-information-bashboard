@@ -7,6 +7,7 @@ import Dashboard from "./component/Dashboard";
 import {BrowserRouter as Router, Route, Routes, } from 'react-router-dom'
 import Branches from './component/Branches';
 import Dashboard1 from './component/Dashboard1';
+import Profile from './component/Profile';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/repositories" element={<Repositories />} />
           <Route path="/repositories1" element={<Repositories1 />} />
           <Route path="/branches" element={<Branches />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
     </Router>

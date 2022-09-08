@@ -235,3 +235,41 @@ code {
   text-decoration: none;
   color: #ECE8E8;
 }
+.profilepic{
+  position: absolute;
+  left: 45rem;
+  top: 9rem;
+
+}
+.fullname{
+  position: relative;
+  left: 20rem;
+  top: 11.5rem;
+  font-size: larger;
+  font-weight: 1000;
+}
+.username{
+   position: relative;
+  left: 21rem;
+  top: 11.2rem;
+}
+.nextbtn22{
+   position: relative;
+  left: 18.5rem;
+  top: 11.5rem;
+  width: 12rem;
+  height: 2.5rem;
+}
+.profilecon{
+  position: absolute;
+  left: 12rem;
+  top: 1rem;
+  width: 35rem;
+}
+.tex{
+   position: relative;
+   top: 13rem;
+  left: 18.5rem;
+  width: 15rem;
+
+}

@@ -11,7 +11,9 @@ const Repositories = () => {
       <div className="dash1">
         <img src={usericon} width={200} alt={usericon} />
         <p>Username</p>
-        <button className="editprofile"> Profile</button>
+        <Link to={"/profile"}>
+          <button className="editprofile"> Profile</button>
+        </Link>
         <h1>
           <img src={dashicon} alt={dashicon} width={40} />
           <Link to={"/dashboard"} className="li">

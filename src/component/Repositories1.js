@@ -11,7 +11,9 @@ const Repositories = () => {
       <div className="dash1">
         <img src={usericon} width={200} alt={usericon} />
         <p>Username</p>
-        <button className="editprofile"> Profile</button>
+        <Link to={"/profile"}>
+          <button className="editprofile"> Profile</button>
+        </Link>
         <h1>
           <img src={dashicon} alt={dashicon} width={40} />
           <Link to={"/dashboard"} className="li">
@@ -24,7 +26,9 @@ const Repositories = () => {
         </h1>
         <h1>
           <img src={repositoryicon} alt={repositoryicon} width={40} />
-          <Link to={"/repositories"} className='li'>Repositories</Link>
+          <Link to={"/repositories"} className="li">
+            Repositories
+          </Link>
         </h1>
         <Link to={"/"}>
           <button className="signout"> Sign out</button>
