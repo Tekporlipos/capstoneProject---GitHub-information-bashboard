@@ -1,42 +1,18 @@
-import usericon from '../images/usericon.png'
-import dashicon from "../images/dashicon.png";
+// import usericon from '../images/usericon.png'
+// import dashicon from "../images/dashicon.png";
 import location from "../images/location.png";
 import link from "../images/link.png";
-import projecticon from "../images/projecticon.png";
-import repositoryicon from "../images/repositoryicon.png";
+// import projecticon from "../images/projecticon.png";
+// import repositoryicon from "../images/repositoryicon.png";
 import { Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import Menu from './Menu';
 
 const Dashboard = () => {
   return (
     <div className="dashcontainer">
       <div className="dash1">
-        <img src={usericon} width={200} alt={usericon} />
-        <p>Username</p>
-        <Link to={"/profile"}>
-          <button className="editprofile"> Profile</button>
-        </Link>
-        <h1>
-          {" "}
-          <img src={dashicon} alt={dashicon} width={40} />
-          <Link to={"/dashboard"} className="li">
-            Dashboard
-          </Link>
-        </h1>
-        <h1>
-          {" "}
-          <img src={projecticon} alt={projecticon} width={40} /> Projects
-        </h1>
-        <h1>
-          {" "}
-          <img src={repositoryicon} alt={repositoryicon} width={40} />
-          <Link to={"/repositories"} className="li">
-            Repositories
-          </Link>
-        </h1>
-        <Link to={"/"}>
-          <button className="signout"> Sign out</button>
-        </Link>
+        <Menu />
       </div>
 
       <div className="dash2">
