@@ -1,6 +1,4 @@
-// import usericon from "../images/usericon.png";
-// import dashicon from "../images/dashicon.png";
-// import user from "../images/user.png";
+
 import icons8 from "../images/icons8.png";
 import link from "../images/link.png";
 import twitter1 from "../images/twitter.png";
@@ -12,10 +10,12 @@ import following1 from "../images/following.png";
 // import Contributions from "./Contributions";
 import { Button } from "react-bootstrap";
 // import { Link } from "react-router-dom";
-import {useEffect,useState} from 'react';
+import { useEffect, useState } from 'react';
 import API from '../api/github'
 import Menu from "./Menu";
-
+import Cookies from "universal-cookie";
+import Contribution from './contribution';
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
 
@@ -30,9 +30,10 @@ const Profile = () => {
   const [avatar,setAvatar] = useState('');
   const [followers, setFollowers] = useState("");
   const [following, setFollowing] = useState("");
-
+const cookies = new Cookies();
   useEffect(()=>{
-    API.getInfo("eternitycodes").then((value) => {
+    const token = cookies.get('token');
+    API.getInfo(token).then((value) => {
       setName(value.name);
       setUserName(value.login);
       setRepos(value.public_repos);
@@ -61,9 +62,11 @@ const Profile = () => {
         <div className="profilecon">
           <p className="fullname">{name}</p>
           <p className="username">{userName}</p>
-          <Button variant="outline-secondary" className="nextbtn22">
-            Repos {repos}
-          </Button>
+          <Link to="./repositories">
+            <Button variant="outline-secondary" className="nextbtn22">
+              Repos {repos}
+            </Button>
+          </Link>
           <p className="tex">{bio}</p>
           <p className="tex3">
             <img src={icons8} alt={icons8} width={20} />
@@ -89,6 +92,11 @@ const Profile = () => {
             <img src={following1} alt={"twitter"} width={20} />
             following {following}
           </p>
+        </div>
+
+        <div className="contribution">
+          Contributions
+          <Contribution />
         </div>
       </div>
     </div>

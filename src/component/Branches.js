@@ -8,6 +8,7 @@ import Contributions from "./Contributions";
 import { DropdownButton, Dropdown, Card } from "react-bootstrap";
 // import { Link } from 'react-router-dom';
 import Menu from './Menu';
+import { Chart } from 'react-apexcharts';
  
 const Dashboard = () => {
   return (
@@ -70,7 +71,7 @@ const Dashboard = () => {
         </Card>
 
         <div className="contributions">
-          Contributions
+          Comparison Chart
           <Contributions />
         </div>
       </div>

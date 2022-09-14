@@ -8,9 +8,11 @@ import {BrowserRouter as Router, Route, Routes, } from 'react-router-dom'
 import Branches from './component/Branches';
 import Dashboard1 from './component/Dashboard1';
 import Profile from './component/Profile';
+// import { useSession, signIn, signOut } from "next-auth/react";
 
 
 function App() {
+  // const { data: session} = useSession()  
   return (
     <Router>
       <div>

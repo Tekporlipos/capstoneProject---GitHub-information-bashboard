@@ -10,7 +10,7 @@ body {
     width: 100%;
     height: 100vh;
     background-position: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 code {
@@ -229,6 +229,11 @@ code {
   left: 17rem;
   top: 10.7rem;
 }
+.contribution{
+  position: absolute;
+  left: 9rem;
+  top: 22.5rem;
+}
 .lin{
   text-decoration: none;
   color: #000000;
@@ -265,7 +270,7 @@ code {
 .profilecon{
   position: absolute;
   left: 10rem;
-  top: 1rem;
+  top: -4.5rem;
   width: 35rem;
 }
 .tex{

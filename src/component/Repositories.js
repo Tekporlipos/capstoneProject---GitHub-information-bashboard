@@ -1,22 +1,35 @@
-// import usericon from "../images/usericon.png";
-// import dashicon from "../images/dashicon.png";
-// import projecticon from "../images/projecticon.png";
-// import repositoryicon from "../images/repositoryicon.png";
+
 import { Button, Badge, ListGroup } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import Menu from './Menu';
+import { useEffect, useState } from "react";
+import Cookies from "universal-cookie";
+import API from "../api/github";
 
 const Repositories = () => {
+
+  // const [repos, setRepos] = useState("");
+  const [repositories, setRepositories] = useState([]);
+
+  const cookies = new Cookies();
+  const token = cookies.get("token");
+  const userName = cookies.get("userName");
+  useEffect(() => {
+    API.getRep(token,userName).then((value) => {
+      setRepositories(value);
+    });
+  });
+
   return (
     <div className="dashcontainer">
       <div className="dash1">
-       <Menu />
+        <Menu />
       </div>
 
       <div className="dash2">
         <h4>
           {" "}
-          Repositories <span>93</span>
+          Repositories <span>{repositories.length}</span>
         </h4>
         <Link to={"/repositories1"}>
           <Button variant="outline-secondary" className="nextbtn">
@@ -28,116 +41,27 @@ const Repositories = () => {
         </Badge>{" "}
         <div className="repolist">
           <ListGroup as="ol" numbered>
-            <ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">
-                  <Link to={"/branches"} className="lin">
-                    React-exchange
-                  </Link>
-                </div>
-                Updated 2 hours ago
-              </div>
-              <Badge bg="secondary" pill>
-                19 commits
-              </Badge>
-            </ListGroup.Item>
-
-            <ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">PhotoSnap</div>
-                Updated 3 hours ago
-              </div>
-              <Badge bg="secondary" pill>
-                49 commits
-              </Badge>
-            </ListGroup.Item>
-
-            <ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">
-                  <Link to={"/branches"} className="lin">
-                    BetaTestaPro
-                  </Link>
-                </div>
-                Updated 5 hours ago
-              </div>
-              <Badge bg="secondary" pill>
-                22 commits
-              </Badge>
-            </ListGroup.Item>
-
-            <ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">Plate</div>
-                Updated 2 hours ago
-              </div>
-              <Badge bg="secondary" pill>
-                12 commits
-              </Badge>
-            </ListGroup.Item>
-
-            <ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">React-exchange</div>
-                Updated 2 hours ago
-              </div>
-              <Badge bg="secondary" pill>
-                19 commits
-              </Badge>
-            </ListGroup.Item>
-
-            <ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">React-exchange</div>
-                Updated 2 hours ago
-              </div>
-              <Badge bg="secondary" pill>
-                19 commits
-              </Badge>
-            </ListGroup.Item>
-
-            <ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">CopyCat</div>
-                Updated 2 days ago
-              </div>
-              <Badge bg="secondary" pill>
-                40 commits
-              </Badge>
-            </ListGroup.Item>
-            <ListGroup.Item
-              as="li"
-              className="d-flex justify-content-between align-items-start"
-            >
-              <div className="ms-2 me-auto">
-                <div className="fw-bold">Video-player</div>
-                Updated 3 days ago
-              </div>
-              <Badge bg="secondary" pill>
-                45 commits
-              </Badge>
-            </ListGroup.Item>
+            {repositories.map((value) => {
+              return (
+                <ListGroup.Item
+                  key={value.id}
+                  as="li"
+                  className="d-flex justify-content-between align-items-start"
+                >
+                  <div className="ms-2 me-auto">
+                    <div className="fw-bold">
+                      <Link to={"/branches"} className="lin">
+                        {value.name}
+                      </Link>
+                    </div>
+                    Updated {value.updated_at} hours ago
+                  </div>
+                  <Badge bg="secondary" pill>
+                    19 commits
+                  </Badge>
+                </ListGroup.Item>
+              );
+            })}
           </ListGroup>
         </div>
       </div>

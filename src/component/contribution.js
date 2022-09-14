@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 
@@ -23,26 +24,26 @@ class App extends Component {
           name: "Tues",
           data: [3, 40, 95, 50, 49, 60, 7, 91, 11, 45, 91, 0],
         },
-        // {
-        //   name: "Wed",
-        //   data: [30, 40, 45, 50, 49, 6, 70, 91, 11, 45, 1, 90],
-        // },
-        // {
-        //   name: "Thur",
-        //   data: [90, 40, 45, 50, 99, 60, 70, 9, 2, 5, 12, 8],
-        // },
-        // {
-        //   name: "Fri",
-        //   data: [30, 4, 45, 90, 49, 60, 70, 9, 1, 25, 66, 99],
-        // },
-        // {
-        //   name: "Sat",
-        //   data: [90, 40, 45, 50, 49, 6, 70, 91, 54, 45, 45, 4],
-        // },
-        // {
-        //   name: "Sun",
-        //   data: [30, 4, 45, 50, 94, 60, 7, 91, 4, 5, 12, 8],
-        // },
+        {
+          name: "Wed",
+          data: [30, 40, 45, 50, 49, 6, 70, 91, 11, 45, 1, 90],
+        },
+        {
+          name: "Thur",
+          data: [90, 40, 45, 50, 99, 60, 70, 9, 2, 5, 12, 8],
+        },
+        {
+          name: "Fri",
+          data: [30, 4, 45, 90, 49, 60, 70, 9, 1, 25, 66, 99],
+        },
+        {
+          name: "Sat",
+          data: [90, 40, 45, 50, 49, 6, 70, 91, 54, 45, 45, 4],
+        },
+        {
+          name: "Sun",
+          data: [30, 4, 45, 50, 94, 60, 7, 91, 4, 5, 12, 8],
+        },
       ],
     };
   }
@@ -55,8 +56,8 @@ class App extends Component {
             <Chart
               options={this.state.options}
               series={this.state.series}
-              type="line"
-              width="600"
+              type="heatmap"
+              width="400"
             />
           </div>
         </div>

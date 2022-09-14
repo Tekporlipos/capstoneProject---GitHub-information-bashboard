@@ -4,14 +4,20 @@
  import { Link } from "react-router-dom";
  import {useState,useEffect} from 'react';
  import API from "../api/github";
+ import Cookies from "universal-cookie";
 
  function Menu(){
  const [userName, setUserName] = useState("");
  const [avatar, setAvatar] = useState("");
+const cookies = new Cookies();
 
     useEffect(() => {
-      API.getInfo("eternitycodes").then((value) => {
+      const token = cookies.get("token");
+      API.getInfo(token).then((value) => {
         setUserName(value.login);
+        if (!cookies.get("userName")) {
+          cookies.set("userName", value.login);
+        } 
         setAvatar(value.avatar_url);
       });
     });
