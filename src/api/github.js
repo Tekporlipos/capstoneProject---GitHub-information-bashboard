@@ -22,8 +22,24 @@ const API =  (function() {
      return result;
     }
 
-    async function __getOrg(token,userNmae) {
-     const data = await fetch(`https://api.github.com/users/${userNmae}/orgs`, {
+    async function __getOrg(token,name,page) {
+      const data = await fetch(
+        `https://api.github.com/user/orgs?per_page=9&page=${page}`,
+        {
+       headers: {
+         Accept: "application/vnd.github+json",
+         Authorization: "Bearer " + token,
+       },
+     });
+     const result = await data.json();
+     return result;
+  }
+  
+  async function __getData(token,path) {
+      const data = await fetch(
+        // `https://api.github.com/users/${name}/orgs`
+        path,
+        {
        headers: {
          Accept: "application/vnd.github+json",
          Authorization: "Bearer " + token,
@@ -33,9 +49,9 @@ const API =  (function() {
      return result;
     }
 
-    async function __getRep(token,userName) {
+    async function __getRep(token,userName,page) {
       const data = await fetch(
-        `https://api.github.com/users/${userName}/repos`,
+        `https://api.github.com/users/${userName}/repos?per_page=8&page=${page}`,
         {
           headers: {
             Accept: "application/vnd.github+json",
@@ -156,11 +172,14 @@ const API =  (function() {
       getInfo(token) {
         return __getInfo(token);
       },
-      getOrg(token,userName) {
-        return __getOrg(token, userName);
+      getOrg(token,userName,page) {
+        return __getOrg(token, userName,page);
       },
-      getRep(token,userName) {
-        return __getRep(token, userName);
+      getRep(token,userName,page) {
+        return __getRep(token, userName,page);
+      },
+      getData(token,page) {
+        return __getData(token,page);
       },
     };
 })();

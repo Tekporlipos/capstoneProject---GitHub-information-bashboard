@@ -1,229 +1,96 @@
-
-import location1 from "../images/location.png";
+import location from "../images/location.png";
 import link from "../images/link.png";
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import Menu from './Menu';
-import { useEffect, useState } from 'react';
-import Cookies from "universal-cookie";
+import { useEffect, useState } from "react";
 import API from "../api/github";
+import Cookies from "universal-cookie";
+import Orgcomponent from "./Orgcomponent";
 
-const Dashboard = () => {
 
-  const [location, setLocation] = useState("");
-  const [website, setWebsite] = useState("");
-  const [repos, setRepos] = useState("");
+let check = true;
+const Dashboard1 = () => {
+  const [organizations, setorganizations] = useState([]);
+  const [page, setPage] = useState(1);
 
   const cookies = new Cookies();
+  const token = cookies.get("token");
+  const userName = cookies.get("userName");
+
   useEffect(() => {
-    const token = cookies.get("token");
-    API.getInfo(token).then((value) => {
-      // setName(value.name);
-      // setUserName(value.login);
-      setRepos(value.public_repos);
-      setWebsite(value.blog);
-      setLocation(value.location);
-      // setTwitter(value.twitter_username);
-      // setBio(value.bio);
-      // setCompany(value.company);
-      // setAvatar(value.avatar_url);
-      // setFollowers(value.followers);
-      // setFollowing(value.following);
+    API.getOrg(token, userName, page).then((value) => {
+      if (value.length > 0) {
+        setorganizations(value);
+        check = true;
+      }
+      console.log(page,value);
     });
-  });
+    
+  },[page]);
+
+
+  function increase() {
+    if (check) {
+      setPage(page + 1);
+    }
+    check = false;
+  }
+
+  function decrease() {
+    if (check && page > 1) {
+      setPage(page - 1);
+    }
+    check = false;
+  }
+
+
   return (
     <div className="dashcontainer">
       <div className="dash1">
-        <Menu />
+       <Menu />
       </div>
 
       <div className="dash2">
         <h4> Organisations</h4>
         <div className="cardoga">
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link>
-                <Link to={"/repositories"}>{repos} repositories</Link>
-              </Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
+          
+          {organizations.map(value => {
+            return (
+          //     <Card style={{ width: "18rem" }}>
+          //   <Card.Body>
+          //       <Card.Title>{ value.login}</Card.Title>
+          //     <Card.Subtitle className="mb-2 text-muted">
+          //       Target's Official GitHub Organisation
+          //     </Card.Subtitle>
+          //     <Card.Text>
+          //       <img src={location} alt={location} width={15} />
+          //       Newston
+          //       <img className="linkicon" src={link} alt={link} width={15} />
+          //       <a className="link" href="#">
+          //         www.target.com
+          //       </a>
+          //     </Card.Text>
+          //     <Card.Link href="#">29 repositories</Card.Link>
+          //     <Card.Link href="#">12 members</Card.Link>
+          //   </Card.Body>
+          // </Card>
+              <Orgcomponent value={ value.url} />
+          );
+          }) }
 
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link href="#">29 repositories</Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
+          
 
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link href="#">29 repositories</Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
-
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link href="#">29 repositories</Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
-
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link href="#">29 repositories</Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
-
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link href="#">29 repositories</Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
-
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link href="#">29 repositories</Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
-
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link href="#">29 repositories</Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
-
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>Target</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
-                Target's Official GitHub Organisation
-              </Card.Subtitle>
-              <Card.Text>
-                <img src={location1} alt={location} width={15} />
-                {location}
-                <img className="linkicon" src={link} alt={link} width={15} />
-                <a className="link" href="website">
-                  {website}
-                </a>
-              </Card.Text>
-              <Card.Link href="#">29 repositories</Card.Link>
-              <Card.Link href="#">12 members</Card.Link>
-            </Card.Body>
-          </Card>
-
-          <Link to={"/dashboard1"}>
-            <Button variant="outline-secondary" className="nextbtn1">
-              Next
+          <Button onClick={increase} variant="outline-secondary" className="nextbtn1">
+            Next
+          </Button>
+         <Button onClick={decrease} variant="outline-secondary" className="nextbtn2">
+              Prev
             </Button>
-          </Link>
         </div>
       </div>
     </div>
   );
-}
+};
 
-
-export default Dashboard
-
+export default Dashboard1;

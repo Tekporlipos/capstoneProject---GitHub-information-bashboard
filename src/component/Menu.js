@@ -43,9 +43,9 @@ const cookies = new Cookies();
         <h1>
           {" "}
           <img src={repositoryicon} alt={repositoryicon} width={40} />
-          <Link to={"/repositories"} className="li">
+          <a href={"/repositories"} className="li">
             Repositories
-          </Link>
+          </a>
         </h1>
         <Link to={"/"}>
           <button className="signout"> Sign out</button>
