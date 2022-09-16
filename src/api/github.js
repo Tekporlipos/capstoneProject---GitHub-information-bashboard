@@ -51,7 +51,7 @@ const API =  (function() {
 
     async function __getRep(token,userName,page) {
       const data = await fetch(
-        `https://api.github.com/users/${userName}/repos?per_page=8&page=${page}`,
+        `https://api.github.com/users/${userName}/repos?per_page=6&page=${page}`,
         {
           headers: {
             Accept: "application/vnd.github+json",
@@ -63,51 +63,51 @@ const API =  (function() {
       return result;
     }
 
-    // async function __getRep(token) {
-    //   const data = await fetch("https://api.github.com/user", {
-    //     headers: {
-    //       Accept: "application/vnd.github+json",
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   });
-    //   const result = await data.json();
-    //   return result;
-    // }
+    async function __getContr(token,username,repos) {
+      const data = await fetch(`https://api.github.com/repos/${username}/${repos}/contributors`, {
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      const result = await data.json();
+      return result;
+    }
 
 
-    // async function __getRep(token) {
-    //   const data = await fetch("https://api.github.com/user", {
-    //     headers: {
-    //       Accept: "application/vnd.github+json",
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   });
-    //   const result = await data.json();
-    //   return result;
-    // }
+    async function __getBraches(token,ower,rep) {
+      const data = await fetch(`https://api.github.com/repos/${ower}/${rep}/branches`, {
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      const result = await data.json();
+      return result;
+    }
 
 
-    // async function __getRep(token) {
-    //   const data = await fetch("https://api.github.com/user", {
-    //     headers: {
-    //       Accept: "application/vnd.github+json",
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   });
-    //   const result = await data.json();
-    //   return result;
-    // }
+    async function __getLanguages(token,ower,rep) {
+      const data = await fetch(`https://api.github.com/repos/${ower}/${rep}/languages`, {
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      const result = await data.json();
+      return result;
+    }
 
-    // async function __getRep(token) {
-    //   const data = await fetch("https://api.github.com/user", {
-    //     headers: {
-    //       Accept: "application/vnd.github+json",
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   });
-    //   const result = await data.json();
-    //   return result;
-    // }
+    async function __getPull(token,owner,rep,state) {
+      const data = await fetch(`https://api.github.com/repos/${owner}/${rep}/pulls?state=${state}&per_page=100`, {
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      const result = await data.json();
+      return result;
+    }
 
     // async function __getRep(token) {
     //   const data = await fetch("https://api.github.com/user", {
@@ -181,6 +181,19 @@ const API =  (function() {
       getData(token,page) {
         return __getData(token,page);
       },
+      getContr(token,name,rep) {
+        return __getContr(token,name,rep);
+      },
+      getBranch(token,ower,rep) {
+        return __getBraches(token,ower,rep);
+      },
+      getLanguages(token,ower,rep) {
+        return __getLanguages(token,ower,rep);
+      },
+       getPull(token,ower,rep,state) {
+        return __getPull(token,ower,rep,state);
+      },
+       
     };
 })();
 

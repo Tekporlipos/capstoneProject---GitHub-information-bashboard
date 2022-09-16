@@ -47,7 +47,7 @@ const cookies = new Cookies();
       setFollowers(value.followers);
       setFollowing(value.following);
     });
-  });
+  },[]);
 
   return (
     <div className="dashcontainer">
@@ -63,7 +63,7 @@ const cookies = new Cookies();
         <div className="profilecon">
           <p className="fullname">{name}</p>
           <p className="username">{userName}</p>
-          <Link to="./repositories">
+          <Link to="/repositories">
             <Button variant="outline-secondary" className="nextbtn22">
               Repos {repos}
             </Button>

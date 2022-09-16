@@ -5,13 +5,14 @@ import Menu from './Menu';
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import API from "../api/github";
+import Rep from "./Rep";
 let check = true;
 const Repositories = () => {
 
   // const [repos, setRepos] = useState("");
   const [repositories, setRepositories] = useState([]);
   const [page, setPage] = useState(1);
-  const [path, setPath] = useState(1);
+  const [path, setPath] = useState('');
 
   const cookies = new Cookies();
   const token = cookies.get("token");
@@ -86,7 +87,6 @@ const Repositories = () => {
 
     }
 
-
   return (
     <div className="dashcontainer">
       <div className="dash1">
@@ -111,27 +111,7 @@ const Repositories = () => {
         </Badge>{" "}
         <div className="repolist">
           <ListGroup as="ol" numbered>
-            {repositories.map((value) => {
-              return (
-                <ListGroup.Item
-                  key={value.id}
-                  as="li"
-                  className="d-flex justify-content-between align-items-start"
-                >
-                  <div className="ms-2 me-auto">
-                    <div className="fw-bold">
-                      <Link to={"/branches"} className="lin">
-                        {value.name}
-                      </Link>
-                    </div>
-                    Updated {timeSince(value.updated_at)}
-                  </div>
-                  <Badge bg="secondary" pill>
-                    19 commits
-                  </Badge>
-                </ListGroup.Item>
-              );
-            })}
+            {repositories.map((value) => <Rep path={path} key={value.id} name={userName} token={token} value={value} timeSince={timeSince} />)}
           </ListGroup>
         </div>
       </div>

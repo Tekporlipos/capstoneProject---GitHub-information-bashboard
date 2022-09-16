@@ -9,8 +9,38 @@ import { DropdownButton, Dropdown, Card } from "react-bootstrap";
 // import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import { Chart } from 'react-apexcharts';
- 
+import { useEffect, useState } from "react";
+import API from "../api/github";
+ import Cookies from "universal-cookie";
+import { useParams, useSearchParams } from "react-router-dom";
 const Dashboard = () => {
+const cookies = new Cookies();
+  const token = cookies.get("token");
+  const userName = cookies.get("userName");
+  const [branch, setBranch] = useState([]);
+  const [open, setOpen] = useState(0);
+  const [close, setClose] = useState(0);
+  const [contribute, setContribute] = useState([]);
+  const { rep } = useParams('rep');
+
+  useEffect(() => {
+    API.getBranch(token, userName, rep).then((value) => {
+      setBranch(value);
+    });
+    API.getContr(token, userName, rep).then((value) => {
+      setContribute(value);
+    });
+
+    API.getPull(token, userName, rep, 'open').then(value => {
+      setOpen(value.length);
+    });
+
+    API.getPull(token, userName, rep, 'closed').then(value => {
+      setClose(value.length);
+    });
+  },[]);
+
+
   return (
     <div className="dashcontainer">
       <div className="dash1">
@@ -26,12 +56,8 @@ const Dashboard = () => {
             id="dropdown-basic-button"
             title="Active Branches"
           >
-            <Dropdown.Item href="#/action-1">Footer</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            <Dropdown.Item href="#/action-1">Folder</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Features</Dropdown.Item>
+          
+            {branch.map((value)=><Dropdown.Item href="#/action-3">{value.name}</Dropdown.Item>)}
           </DropdownButton>
         </div>
 
@@ -41,16 +67,14 @@ const Dashboard = () => {
             id="dropdown-basic-button"
             title="Collaborators"
           >
-            <Dropdown.Item href="#/action-1">Footer</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            {contribute.map((value) => <Dropdown.Item href="#/action-1">{ value.login}</Dropdown.Item>)}
           </DropdownButton>
         </div>
 
         <Card style={{ width: "15rem" }} className="pull">
           <Card.Body>
             <Card.Title class="text-center">
-              <img src={pull} alt={pull} width={25} />0
+              <img src={pull} alt={pull} width={25} />{open}
             </Card.Title>
             <Card.Subtitle className="mb-2 text-muted" class="text-center">
               Open pull request
@@ -62,7 +86,7 @@ const Dashboard = () => {
           <Card.Body>
             <Card.Title class="text-center">
               <img src={check} alt={check} width={25} />
-              29
+              {close}
             </Card.Title>
             <Card.Subtitle className="mb-2 text-muted" class="text-center">
               Closed pull request

@@ -19,10 +19,10 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Cover />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard1" element={<Dashboard1 />} />
+          {/* <Route path="/dashboard1" element={<Dashboard1 />} /> */}
           <Route path="/repositories" element={<Repositories />} />
-          <Route path="/repositories1" element={<Repositories1 />} />
-          <Route path="/branches" element={<Branches />} />
+          {/* <Route path="/repositories1" element={<Repositories1 />} /> */}
+          <Route path="/branches/:rep" element={<Branches />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </div>
