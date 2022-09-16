@@ -5,9 +5,10 @@ import API from '../api/github';
 function Rep(props) {
     const [commit, setCommit] = useState(0);
     const [langs, setLang] = useState(0);
+    const org = new URL(window.location.href).searchParams.get('org');
    async function get(){
-       const cont = await API.getContr(props.token, props.name, props.value.name);
-       const lang = await API.getLanguages(props.token, props.name, props.value.name);
+       const cont = await API.getContr(props.token, org?org:props.name, props.value.name);
+       const lang = await API.getLanguages(props.token, org?org:props.name, props.value.name);
        setLang(lang)
        if (cont.length > 0) {
            let num = 0;

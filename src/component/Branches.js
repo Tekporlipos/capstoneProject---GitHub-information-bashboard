@@ -22,20 +22,21 @@ const cookies = new Cookies();
   const [close, setClose] = useState(0);
   const [contribute, setContribute] = useState([]);
   const { rep } = useParams('rep');
+  const org = new URL(window.location.href).searchParams.get('org');
 
   useEffect(() => {
-    API.getBranch(token, userName, rep).then((value) => {
+    API.getBranch(token, org?org:userName, rep).then((value) => {
       setBranch(value);
     });
-    API.getContr(token, userName, rep).then((value) => {
+    API.getContr(token, org?org:userName, rep).then((value) => {
       setContribute(value);
     });
 
-    API.getPull(token, userName, rep, 'open').then(value => {
+    API.getPull(token, org?org:userName, rep, 'open').then(value => {
       setOpen(value.length);
     });
 
-    API.getPull(token, userName, rep, 'closed').then(value => {
+    API.getPull(token, org?org:userName, rep, 'closed').then(value => {
       setClose(value.length);
     });
   },[]);
@@ -57,7 +58,7 @@ const cookies = new Cookies();
             title="Active Branches"
           >
           
-            {branch.map((value)=><Dropdown.Item href="#/action-3">{value.name}</Dropdown.Item>)}
+            {branch && branch.length>0 ? branch.map((value)=><Dropdown.Item href="#/action-3">{value.name}</Dropdown.Item>):null}
           </DropdownButton>
         </div>
 
@@ -67,7 +68,7 @@ const cookies = new Cookies();
             id="dropdown-basic-button"
             title="Collaborators"
           >
-            {contribute.map((value) => <Dropdown.Item href="#/action-1">{ value.login}</Dropdown.Item>)}
+            {contribute && contribute.length>0?contribute.map((value) => <Dropdown.Item href="#/action-1">{ value.login}</Dropdown.Item>):null}
           </DropdownButton>
         </div>
 
