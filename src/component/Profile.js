@@ -33,10 +33,9 @@ const Profile = () => {
 const cookies = new Cookies();
   useEffect(()=>{
     const token = cookies.get('token');
-    API.getInfo(token).then((value) => {
+      API.getInfo(token).then((value) => {
       setName(value.name);
       setUserName(value.login);
-      cookies.set("userName", value.login);
       setRepos(value.public_repos);
       setWebsite(value.blog);
       setLocation(value.location);

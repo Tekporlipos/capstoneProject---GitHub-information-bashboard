@@ -18,6 +18,7 @@ function App() {
       <div>
         <Routes>
           <Route exact path="/" element={<Cover />} />
+          <Route exact path="/login" element={<Cover />} />
           <Route path="/dashboard" element={<Dashboard />} />
           {/* <Route path="/dashboard1" element={<Dashboard1 />} /> */}
           <Route path="/repositories" element={<Repositories />} />

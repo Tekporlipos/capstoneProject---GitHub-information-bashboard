@@ -109,16 +109,6 @@ const API =  (function() {
       return result;
     }
 
-    // async function __getRep(token) {
-    //   const data = await fetch("https://api.github.com/user", {
-    //     headers: {
-    //       Accept: "application/vnd.github+json",
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   });
-    //   const result = await data.json();
-    //   return result;
-    // }
 
     // async function __getRep(token) {
     //   const data = await fetch("https://api.github.com/user", {

@@ -24,7 +24,6 @@ const Dashboard1 = () => {
         setorganizations(value);
         check = true;
       }
-      console.log(page,value);
     });
     
   },[page]);

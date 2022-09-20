@@ -5,6 +5,8 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    console.log(props);
+
     this.state = {
       options: {
         chart: {
@@ -16,12 +18,12 @@ class App extends Component {
       },
       series: [
         {
-          name: "Mon",
-          data: [30, 40, 6, 50, 49, 60, 70, 91, 22, 55, 2, 45],
+          name: props.userName,
+          data: [props.me],
         },
         {
-          name: "Tues",
-          data: [3, 40, 95, 50, 49, 60, 7, 91, 11, 45, 91, 0],
+          name: props.highName.name,
+          data: [props.highName.cont],
         },
         // {
         //   name: "Wed",
@@ -55,7 +57,7 @@ class App extends Component {
             <Chart
               options={this.state.options}
               series={this.state.series}
-              type="line"
+              type="bar"
               width="600"
             />
           </div>

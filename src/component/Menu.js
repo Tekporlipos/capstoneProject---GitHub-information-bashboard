@@ -10,18 +10,28 @@
  const [userName, setUserName] = useState("");
  const [avatar, setAvatar] = useState("");
 const cookies = new Cookies();
-
+ const token = cookies.get("token");
     useEffect(() => {
-      const token = cookies.get("token");
       API.getInfo(token).then((value) => {
-        setUserName(value.login);
-        if (!cookies.get("userName")) {
-          cookies.set("userName", value.login);
-        } 
+        setUserName(value.name);
         setAvatar(value.avatar_url);
       });
     });
 
+   
+   useEffect(() => {
+    if (token == null || (token && token.length < 4)) {
+       window.open('/',{replace:true});
+     }
+  }, []);
+   
+   function logout() {
+     cookies.set('token',null);
+      cookies.set('userName', null);
+      cookies.set('name', null);
+      window.location.replace('/',{replace:true});
+   }
+   
     return (
       <div className="dash1">
         <img src={avatar} width={190}  style={{borderRadius:'100%'}} alt={userName} />
@@ -47,9 +57,9 @@ const cookies = new Cookies();
             Repositories
           </a>
         </h1>
-        <Link to={"/"}>
+        <div onClick={logout}>
           <button className="signout"> Sign out</button>
-        </Link>
+        </div>
       </div>
     );
 }

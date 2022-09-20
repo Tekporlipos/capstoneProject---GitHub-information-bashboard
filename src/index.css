@@ -199,10 +199,16 @@ code {
 
 }
 
+
+.h-50{
+  overflow-y: hidden;
+}
+
 .dropdown1{
   position: absolute;
   /* left: 8.5rem; */
   top: 1.5rem;
+  height: 10rem;
 
 }
 .linkicon{

@@ -17,30 +17,48 @@ const Dashboard = () => {
 const cookies = new Cookies();
   const token = cookies.get("token");
   const userName = cookies.get("userName");
+  const name = cookies.get("name");
   const [branch, setBranch] = useState([]);
   const [open, setOpen] = useState(0);
   const [close, setClose] = useState(0);
   const [contribute, setContribute] = useState([]);
+  const [highContr, sethighContr] = useState({});
+  const [myContr, setmyContr] = useState({});
   const { rep } = useParams('rep');
   const org = new URL(window.location.href).searchParams.get('org');
 
   useEffect(() => {
-    API.getBranch(token, org?org:userName, rep).then((value) => {
+    API.getBranch(token, org?org ==='undefined'?userName:org:userName, rep).then((value) => {
       setBranch(value);
     });
-    API.getContr(token, org?org:userName, rep).then((value) => {
+    API.getContr(token, org?org ==='undefined'?userName:org:userName, rep).then((value) => {
       setContribute(value);
+
+
+
+  
+      value.sort((a, b) => {
+        return b.contributions - a.contributions;
+      });
+
+      sethighContr({ name: value[0].login, cont: value[0].contributions });
+      const mycont = value.find(value => value.login === userName);
+      setmyContr({ name:mycont.login, cont: mycont.contributions });
     });
 
-    API.getPull(token, org?org:userName, rep, 'open').then(value => {
-      setOpen(value.length);
+    API.getPull(token, org?org ==='undefined'?userName:org:userName, 'open').then(value => {
+      if (value.length) {
+        setOpen(value.length);
+      }
+      
     });
 
-    API.getPull(token, org?org:userName, rep, 'closed').then(value => {
-      setClose(value.length);
+    API.getPull(token, org?org ==='undefined'?userName:org:userName, 'closed').then(value => {
+      if (value.length) {
+         setClose(value.length);
+      }
     });
   },[]);
-
 
   return (
     <div className="dashcontainer">
@@ -64,11 +82,14 @@ const cookies = new Cookies();
 
         <div className="dropdown1">
           <DropdownButton
+            style={{heigth:'100px'}}
             variant="outline-secondary"
             id="dropdown-basic-button"
             title="Collaborators"
           >
-            {contribute && contribute.length>0?contribute.map((value) => <Dropdown.Item href="#/action-1">{ value.login}</Dropdown.Item>):null}
+            <div className="h-50">
+               {contribute && contribute.length>0?contribute.map((value) => <Dropdown.Item href="#/action-1">{ value.login}</Dropdown.Item>):null}
+           </div>
           </DropdownButton>
         </div>
 
@@ -97,7 +118,7 @@ const cookies = new Cookies();
 
         <div className="contributions">
           Comparison Chart
-          <Contributions />
+          {highContr.name?<Contributions me={myContr.cont?myContr.cont:0} userName={name}  highName={highContr}/>:null}
         </div>
       </div>
     </div>
