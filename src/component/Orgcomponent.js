@@ -16,9 +16,11 @@ const Orgcomponent = (props) => {
 
 
 
-    function domain(path) {
-        if (path) {
-            return path.split('.')[0].split('//')[1];
+  function domain(path) {
+      
+    if (path) {
+      const url = new URL(path.replace('www.', 'https://'));
+      return url.host;
         }
        
     }
