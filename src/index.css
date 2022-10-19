@@ -1,0 +1,291 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url("./images/digital-1742687_1920.jpg");
+    background-size: 100%;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.head{
+    color: #ECE8E8;
+    
+    font-weight: 7000;
+    font-size: 4rem;
+
+}
+.headp{
+    color: #ECE8E8;
+}
+
+.head span{
+    color: #00C9F0;
+}
+.covertext{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container-cover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.loginbutton{
+    color: #ECE8E8;
+    background-color: #834821;
+    width: 15rem;
+    height: 3.5rem;
+    border-radius: 10px;
+    position: relative;
+    left: 60%;
+    font-size: 2rem;
+    transition: 0.5s;
+    font-weight: 10rem;
+}
+.loginbutton:hover {
+    color: #834821;
+    background-color: #ECE8E8;
+}
+
+.signout{
+    color: #ECE8E8;
+    background-color: #834821;
+    width: 15rem;
+    height: 3.5rem;
+    border-radius: 10px ;
+    border-color:  #834821 ;
+
+    position: absolute;
+    left: 2.3rem;
+    top: 43rem;
+    font-size: 2rem;
+    transition: 0.5s;
+    font-weight: 10rem;
+}
+.signout:hover {
+    color: #834821;
+    background-color: #ECE8E8;
+}
+
+.dash1{
+   color: #ECE8E8;
+    background-color:#1C2B3D;
+    width: 20rem;
+    height: 48rem;
+    margin: 0;
+    position: relative;
+    /* top: -1rem; */
+}
+
+.editprofile{
+    color: #ECE8E8;
+    background-color: #834821;
+    width: 12rem;
+    height: 3.2rem;
+    border-radius: 10px ;
+    border-color:  #834821 ;
+
+    position: absolute;
+    left: 3.9rem;
+    top: 15rem;
+    font-size: 2rem;
+    transition: 0.5s;
+    font-weight: 10rem
+}
+.editprofile:hover{
+  color: #834821;
+    background-color: #ECE8E8;
+}
+
+.dashcontainer{
+  display: flex;
+  justify-content: space-between;
+}
+.dash2{
+  width: 100%;
+  height: 40rem;
+  background-color: #ECE8E8;
+  position: relative;
+  top: 8rem;
+}
+
+.dash2 h4{
+  position: absolute;
+  left: 1rem;
+  top: 0.5rem
+}
+.dash1 h1{
+ position: relative;
+    left: 7%;
+    top: 26rem;
+}
+.dash1 h1 img{
+ position: relative;
+    left: -3%;
+}
+.dash1 img{
+  position: absolute;
+  left: 4rem;
+  top: -0.2rem;
+}
+.dash1 p{
+  position: absolute;
+  left: 7rem;
+  top: 12.5rem;
+}
+.nextbtn{
+  position: absolute;
+  left: 37rem;
+  top: 36.5rem;
+}
+.nextbtn1{
+  position: absolute;
+  left: 59.5rem;
+  top: 16rem;
+}
+.nextbtn2{
+  position: absolute;
+  left: -6.7rem;
+  top: 16rem;
+}
+
+.prev{
+  position: absolute;
+  left: 32rem;
+  top: 36.5rem;
+}
+.public{
+  position: absolute;
+  left: 14.5rem;
+  top: 0.5rem;
+
+}
+.repolist{
+  position: absolute;
+  top: 3rem;
+  width: 100%;
+}
+
+.dash2 span{
+  background-color:#f7f9f9;
+  padding: 0.1rem;
+  border-radius: 20rem;
+}
+
+.cardoga{
+    position: absolute;
+    left: 10rem;
+    top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    }
+
+.dropdown{
+  position: absolute;
+  left: 9.5rem;
+  top: 1.5rem;
+
+}
+
+
+.h-50{
+  overflow-y: hidden;
+}
+
+.dropdown1{
+  position: absolute;
+  /* left: 8.5rem; */
+  top: 1.5rem;
+  height: 10rem;
+
+}
+.linkicon{
+  position: relative;
+  left: 0.5rem;
+}
+.link{
+  position: relative;
+  left: 0.7rem;
+}
+
+.pull{
+  position: absolute;
+  left: 32rem;
+}
+
+.pull1{
+  position: absolute;
+  left: 50rem;
+  top: -5.2rem;
+}
+.contributions{
+  position: absolute;
+  left: 17rem;
+  top: 10.7rem;
+}
+.contribution{
+  position: absolute;
+  left: 9rem;
+  top: 22.5rem;
+}
+.lin{
+  text-decoration: none;
+  color: #000000;
+}
+.li{
+  text-decoration: none;
+  color: #ECE8E8;
+}
+.profilepic{
+  position: absolute;
+  left: 45rem;
+  top: 9rem;
+
+}
+.fullname{
+  position: relative;
+  left: 20rem;
+  top: 11.5rem;
+  font-size: larger;
+  font-weight: 1000;
+}
+.username{
+   position: relative;
+  left: 21rem;
+  top: 11.2rem;
+}
+.nextbtn22{
+   position: relative;
+  left: 18.5rem;
+  top: 11.5rem;
+  width: 12rem;
+  height: 2.5rem;
+}
+.profilecon{
+  position: absolute;
+  left: 10rem;
+  top: -4.5rem;
+  width: 35rem;
+}
+.tex{
+   position: relative;
+   top: 13rem;
+  left: 18.5rem;
+  width: 15rem;
+
+}
